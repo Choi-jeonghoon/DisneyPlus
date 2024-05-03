@@ -1,13 +1,12 @@
 import React from 'react';
-import NavCompoent from './commons/NavCompoent';
+import NavComponent from './commons/NavCompoent';
 
 function App() {
   return (
     <div>
-      <NavCompoent />
+      <NavComponent />
     </div>
   );
 }
 
 export default App;
- 

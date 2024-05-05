@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import fetchNowPlayingMovies from '../api/fetchNowPlaying';
+import customAxios from '../api/index';
 
 function useNowPlayingMovies() {
   // 현재 상영 중인 영화 데이터 저장
@@ -17,7 +18,16 @@ function useNowPlayingMovies() {
         setError(null);
         // fetchNowPlayingMovies 함수를 호출하여 현재 상영중인 영화 데이터를 가져옵니다.
         const data = await fetchNowPlayingMovies();
-        setMovies(data);
+        // console.log(data);
+        const randomIndex = Math.floor(Math.random() * data.results.length);
+        // console.log(randomIndex);
+        const randomIndexId = data.results[randomIndex].id; // 무작위 영화 데이터 선택
+        console.log('Random Movie:', randomIndexId);
+        const { data: movieDeatil } = await customAxios.get(`movie/${randomIndexId}`, {
+          params: { append_to_response: 'videos' },
+        });
+        console.log(movieDeatil);
+        setMovies(movieDeatil);
       } catch (error) {
         setError(error);
       } finally {
@@ -25,7 +35,6 @@ function useNowPlayingMovies() {
       }
     })();
   }, []);
-
   return { movies, loading, error };
 }
 

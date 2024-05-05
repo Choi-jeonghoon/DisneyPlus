@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import './App.css';
 import NavComponent from './commons/NavCompoent';
 import backgroundImage from './images/home-background.png';
+import BannerContainer from './containers/BannerContainer';
 
 function App() {
   return (
     <MainPage>
       <NavComponent />
+      <BannerContainer />
     </MainPage>
   );
 }

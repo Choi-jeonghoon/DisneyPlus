@@ -12,7 +12,7 @@ const useScroll = (limit) => {
     const handleScroll = () => {
       // 현재 스크롤 위치를 가져옵니다.
       const scrollY = window.scrollY;
-      console.log(scrollY);
+      //console.log(scrollY);
       // 만약 스크롤 위치가 임계값 이상이면 스크롤 상태를 true로 업데이트합니다.
       if (scrollY > limit) {
         setIsScrolled(true);

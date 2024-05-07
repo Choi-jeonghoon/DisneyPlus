@@ -25,7 +25,7 @@ const BannerContainer = () => {
      return <LodeCompoent />;
    }
   */
-  
+
   // 로딩 중일 때 보여줄 화면
   if (loading) {
     return <LodeCompoent />;

@@ -22,11 +22,11 @@ function useNowPlayingMovies() {
         const randomIndex = Math.floor(Math.random() * data.results.length);
         // console.log(randomIndex);
         const randomIndexId = data.results[randomIndex].id; // 무작위 영화 데이터 선택
-        console.log('Random Movie:', randomIndexId);
+        //console.log('Random Movie:', randomIndexId);
         const { data: movieDeatil } = await customAxios.get(`movie/${randomIndexId}`, {
           params: { append_to_response: 'videos' },
         });
-        console.log(movieDeatil);
+        //console.log(movieDeatil);
         setMovies(movieDeatil);
       } catch (error) {
         setError(error);

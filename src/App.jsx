@@ -5,6 +5,7 @@ import NavComponent from './commons/NavCompoent';
 import backgroundImage from '/images/home-background.png';
 import BannerContainer from './containers/BannerContainer';
 import CategoryContainer from './containers/CategoryContainer';
+import RowContainer from './containers/RowContainer';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <NavComponent />
       <BannerContainer />
       <CategoryContainer />
+      <RowContainer />
     </MainPage>
   );
 }

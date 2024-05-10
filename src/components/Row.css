@@ -74,7 +74,7 @@
 .row_posters {
   display: flex;
   overflow-y: hidden;
-  overflow-x: scroll;
+  overflow-x: hidden;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;

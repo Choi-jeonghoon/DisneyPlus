@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Row.css';
+import MovieModalCompoent from './Modal/MovieModalCompoent';
 
-const RowComponent = ({ title, id, data }) => {
+const RowComponent = ({ title, id, data, modalOpen, openModal, selectedMovie, closeModal }) => {
   return (
     <div>
       <h2 className='title'>{title}</h2>
@@ -10,7 +11,7 @@ const RowComponent = ({ title, id, data }) => {
           className='slider_arrow_left'
           onClick={() => {
             const element = document.getElementById(id);
-            element.scrollLeft -= 2000;
+            element.scrollLeft -= 1000;
           }}
         >
           <span className='arrow'>{'<'}</span>
@@ -22,7 +23,7 @@ const RowComponent = ({ title, id, data }) => {
               className='row_poster'
               src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
               alt={item.title}
-              // onClick={() => handleClick(item)}
+              onClick={() => openModal(item)}
             />
           ))}
         </div>
@@ -30,12 +31,13 @@ const RowComponent = ({ title, id, data }) => {
           className='slider_arrow_right'
           onClick={() => {
             const element = document.getElementById(id);
-            element.scrollLeft += 2000;
+            element.scrollLeft += 1000;
           }}
         >
           <span className='arrow'>{'>'}</span>
         </div>
       </div>
+      {modalOpen && <MovieModalCompoent {...selectedMovie} closeModal={closeModal} />}
     </div>
   );
 };

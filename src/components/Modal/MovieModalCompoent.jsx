@@ -12,6 +12,7 @@ const MovieModalCompoent = ({
   closeModal,
 }) => {
   return (
+    //여기서 role 속성은  HTML 의 더욱더 명확하게 명시하기 위해 사용했다.
     <div className='presentation' role='presentation'>
       <div className='wrapper-modal'>
         <div className='modal'>

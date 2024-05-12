@@ -13,7 +13,7 @@ const BannerComponent = ({ movies, truncate }) => {
             <CloseButton onClick={() => setIsClicked(false)}>X</CloseButton>
             <HomeContainer>
               <Iframe
-                src={`https://www.youtube.com/embed/${movies.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=1&playlist=${movies.videos.results[0].key}`}
+                src={`https://www.youtube.com/embed/${movies.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=0&playlist=${movies.videos.results[0].key}`}
                 width='440'
                 height='270'
                 allow='autoplay; fullscreen'

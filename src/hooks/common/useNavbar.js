@@ -1,5 +1,6 @@
 // useScroll 커스텀 훅을 import합니다.
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // 스크롤 이벤트를 관리하는 커스텀 훅을 정의합니다.
 const useScroll = (limit) => {

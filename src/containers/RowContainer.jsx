@@ -5,9 +5,7 @@ import useMoviceModal from '../hooks/common/useMoviceModal';
 
 const RowContainer = () => {
   const { trendingData, topRatedData, actionMoviesData, comedyMoviesData } = useMovies();
-  const { modalOpen, selectedMovie, openModal, closeModal } = useMoviceModal();
-
-  //코드가 공통적인 모습이 너무 길게 있어서 간단한 데이터 묶음
+  const { modalOpen, selectedMovie, handleClick, setModalOpen } = useMoviceModal();
   const rowComponents = [
     { title: 'Trending Now', id: 'TN', data: trendingData },
     { title: 'Top Rated', id: 'TR', data: topRatedData },
@@ -25,8 +23,8 @@ const RowContainer = () => {
           data={data}
           modalOpen={modalOpen}
           selectedMovie={selectedMovie}
-          openModal={openModal}
-          closeModal={closeModal}
+          handleClick={handleClick}
+          setModalOpen={setModalOpen}
         />
       ))}
     </div>

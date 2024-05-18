@@ -1,25 +1,21 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const useMoviceModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState({});
+  const modalRef = useRef(); // modalRef 생성
 
-  //창 열기
-  const openModal = (movie) => {
-    setSelectedMovie(movie);
+  const handleClick = (item) => {
     setModalOpen(true);
-  };
-
-  //창 닫기
-  const closeModal = () => {
-    setModalOpen(false);
+    setSelectedMovie(item);
   };
 
   return {
     modalOpen,
     selectedMovie,
-    openModal,
-    closeModal,
+    setModalOpen,
+    handleClick,
+    modalRef,
   };
 };
 

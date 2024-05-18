@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Row.css';
-import MovieModalCompoent from './Modal/MovieModalCompoent';
+import MovieModalComponent from '../components/Modal/MovieModalCompoent';
 
-const RowComponent = ({ title, id, data, modalOpen, openModal, selectedMovie, closeModal }) => {
+const RowComponent = ({ title, id, data, modalOpen, selectedMovie, handleClick, setModalOpen }) => {
+  const modalRef = useRef(); // modalRef 생성
+
   return (
     <div>
       <h2 className='title'>{title}</h2>
@@ -23,7 +25,7 @@ const RowComponent = ({ title, id, data, modalOpen, openModal, selectedMovie, cl
               className='row_poster'
               src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
               alt={item.title}
-              onClick={() => openModal(item)}
+              onClick={() => handleClick(item)}
             />
           ))}
         </div>
@@ -37,7 +39,9 @@ const RowComponent = ({ title, id, data, modalOpen, openModal, selectedMovie, cl
           <span className='arrow'>{'>'}</span>
         </div>
       </div>
-      {modalOpen && <MovieModalCompoent {...selectedMovie} closeModal={closeModal} />}
+      {modalOpen && (
+        <MovieModalComponent {...selectedMovie} setModalOpen={setModalOpen} modalRef={modalRef} />
+      )}
     </div>
   );
 };

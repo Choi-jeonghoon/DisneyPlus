@@ -1,7 +1,12 @@
 import React from 'react';
+import DetailContainer from '../containers/DetailContainer';
 
 const DetailPage = () => {
-  return <div>DetailPage</div>;
+  return (
+    <div>
+      <DetailContainer />
+    </div>
+  );
 };
 
 export default DetailPage;

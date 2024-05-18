@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import DeatilComponent from '../components/DeatilComponent';
+import useMovieDetail from '../hooks/UseMoviceDetail';
 
 const DetailContainer = () => {
-  return (
-    <div>DetailContainer</div>
-  )
-}
+  const { movieId } = useParams();
+  const { movie, error, loading } = useMovieDetail(movieId);
 
-export default DetailContainer
+  return (
+    <div>
+      <DeatilComponent movie={movie} error={error} loading={loading} />
+    </div>
+  );
+};
+
+export default DetailContainer;

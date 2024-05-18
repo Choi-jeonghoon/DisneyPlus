@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import customAxios from '../api/index';
 import { debounce } from 'lodash';
@@ -9,28 +9,31 @@ const useSearchMovies = () => {
   const query = new URLSearchParams(location.search);
   const searchTerm = query.get('q');
 
-  const fetchSearchMovie = async (searchTerm) => {
-    try {
-      const response = await customAxios.get(
-        `/search/multi?include_adult=false&query=${searchTerm}`,
-      );
-      setSearchResults(response.data.results);
-      console.log('response', response);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // 입력값이 변경될 때마다 호출되는 함수
-  const delayedFetchSearchMovie = debounce(fetchSearchMovie, 500);
+  // debounce된 함수를 컴포넌트가 처음 마운트될 때 한 번만 생성합니다.
+  const delayedFetchSearchMovie = useMemo(
+    () =>
+      debounce(async (searchTerm) => {
+        try {
+          const response = await customAxios.get(
+            `/search/multi?include_adult=false&query=${searchTerm}`,
+          );
+          setSearchResults(response.data.results);
+          console.log('response', response);
+        } catch (error) {
+          console.error(error);
+        }
+      }, 500),
+    [],
+  ); // 500ms의 지연 시간을 설정합니다.
 
   useEffect(() => {
-    if (searchTerm) {
-      delayedFetchSearchMovie(searchTerm); // debounce된 함수 호출
+    // 입력이 멈추고 검색어가 완전히 입력된 후에 debounce된 함수를 호출합니다.
+    if (searchTerm && searchTerm.trim() !== '') {
+      delayedFetchSearchMovie(searchTerm);
     }
     // cleanup 함수
     return () => {
-      delayedFetchSearchMovie.cancel(); // 컴포넌트가 언마운트될 때 debounce된 함수를 취소
+      delayedFetchSearchMovie.cancel();
     };
   }, [searchTerm, delayedFetchSearchMovie]);
 

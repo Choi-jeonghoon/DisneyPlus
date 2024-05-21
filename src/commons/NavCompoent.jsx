@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import logo from '/images/logo.svg';
 import useScroll from '../hooks/common/useNavbar';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import useAuth from '../hooks/useAuth';
 
 const NavComponent = () => {
-  const Show = useScroll(50);
+  const Show = useScroll(10);
   const { pathname } = useLocation(); //현재 여기서 path 경로를 확인
   //console.log(pathname);
 
@@ -19,21 +19,32 @@ const NavComponent = () => {
     navigate(`/search?q=${e.target.value}`);
   };
 
+  const { userData, handleAuth, handleSignOut } = useAuth();
+
   return (
     <NavWrapper Show={Show}>
       <Loge>
         <img alt='Disney Plus' src={logo} onClick={() => (window.location.href = '/')} />
       </Loge>
       {pathname === '/' ? (
-        <Login>Login</Login>
+        <Login onClick={handleAuth}>Login</Login>
       ) : (
-        <Input
-          className='nav__input'
-          type='text'
-          placeholder='검색어를 입력해주세요'
-          value={searchValue}
-          onChange={handleChange}
-        />
+        <>
+          <Input
+            className='nav__input'
+            type='text'
+            placeholder='검색어를 입력해주세요'
+            value={searchValue}
+            onChange={handleChange}
+          />
+
+          <SignOut>
+            <UserImg src={userData.photoURL} alt={userData.displayName} />
+            <DropDown>
+              <span onClick={handleSignOut}>Sign Out</span>
+            </DropDown>
+          </SignOut>
+        </>
       )}
     </NavWrapper>
   );
@@ -101,4 +112,47 @@ const Input = styled.input`
   color: white;
   padding: 5px;
   border: none;
+`;
+
+const DropDown = styled.div`
+  position: absolute;
+  top: 48px;
+  right: 0px;
+  background: rgb(19, 19, 19)
+  border: 1px solid rgba(151, 151, 151, 0.34);
+  border-radius:  4px;
+  box-shadow: rgb(0 0 0 /50%) 0px 0px 18px 0px;
+  padding: 10px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  opacity: 0;
+  visibility: hidden;
+  
+`;
+
+const SignOut = styled.div`
+  position: relative;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    ${DropDown} {
+      opacity: 1;
+      visibility: visible;
+      transition-duration: 1s;
+      min-width: 80px;
+      max-width: 200px;
+      background-color: black;
+    }
+  }
+`;
+
+const UserImg = styled.img`
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
 `;

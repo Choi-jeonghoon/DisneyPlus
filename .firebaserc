@@ -1,9 +1,17 @@
 {
   "projects": {
-    "default": "react-disney-clone-df414",
+    "default": "myreactnative-25176",
     "prod": "myreactnative-25176"
   },
-  "targets": {},
+  "targets": {
+    "myreactnative-25176": {
+      "hosting": {
+        "live": [
+          "myreactnative-25176"
+        ]
+      }
+    }
+  },
   "etags": {},
   "dataconnectEmulatorConfig": {}
 }

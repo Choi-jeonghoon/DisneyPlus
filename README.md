@@ -28,8 +28,28 @@
 - Axios
 - 스타일드 컴포넌트 (Styled Components)
 - CSS
+- Firebase 배포
+
+개발된 이미지
+1. Home
+  ![스크린샷 2024-05-22 오전 12 11 17](https://github.com/Choi-jeonghoon/DisneyPlus/assets/68211978/a4bbf931-c7f9-4c9d-a299-f391faae3653)
+
+2. 메인
+  ![스크린샷 2024-05-22 오전 12 15 43](https://github.com/Choi-jeonghoon/DisneyPlus/assets/68211978/db89c4e4-ff1d-41d3-a39e-4ba59cfa701d)
+
+3. 로그인
+   ![스크린샷 2024-05-22 오전 12 11 41](https://github.com/Choi-jeonghoon/DisneyPlus/assets/68211978/a63c68fe-0efe-44bb-9db5-58b917c1b6bd)
+
+4. 검색
+  ![스크린샷 2024-05-22 오전 12 12 20](https://github.com/Choi-jeonghoon/DisneyPlus/assets/68211978/5c32e0d5-4c60-4812-88f3-2abd62aafcff)
+
+5. 디테일
+  ![스크린샷 2024-05-22 오전 12 12 29](https://github.com/Choi-jeonghoon/DisneyPlus/assets/68211978/b492dbe0-61da-474f-8b6e-cab25cd3b86e)
+
+
 
 ## 참고
+배포된 경로 입니다. https://react-disney-clone-df414.firebaseapp.com/
 
 - [Firebase](httpss://firebase.google.com/)
 - [The Movie Database API](httpss://www.themoviedb.org/documentation/api)

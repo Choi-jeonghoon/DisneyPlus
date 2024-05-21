@@ -87,7 +87,7 @@ const RowComponent = ({ title, id, data, modalOpen, selectedMovie, handleClick, 
 //             <img
 //               key={item.id}
 //               className='row_poster'
-//               src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
+//               src={`httpss://image.tmdb.org/t/p/original${item.backdrop_path}`}
 //               alt={item.title}
 //               onClick={() => handleClick(item)}
 //             />

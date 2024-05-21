@@ -31,5 +31,5 @@
 
 ## 참고
 
-- [Firebase](https://firebase.google.com/)
-- [The Movie Database API](https://www.themoviedb.org/documentation/api)
+- [Firebase](httpss://firebase.google.com/)
+- [The Movie Database API](httpss://www.themoviedb.org/documentation/api)

@@ -7,7 +7,7 @@ const LoginComponent = () => {
       <Content>
         <Center>
           <LogoOne src='/images/cta-logo-one.svg' alt='logo-one' />
-          <SignUpLink>지금 가입</SignUpLink>
+
           <Description>영화에 대한 프리미어 액세스를 얻으십시오.</Description>
           <LogoTwo src='images/cta-logo-two.png' alt='logo-two' />
         </Center>
@@ -67,23 +67,6 @@ const LogoOne = styled.img`
   min-height: 1px;
   display: block;
   width: 100%;
-`;
-
-const SignUpLink = styled.a`
-  font-weight: bold;
-  color: #f9f9f9;
-  background-color: #0063e5;
-  margin-bottom: 12px;
-  width: 100%;
-  letter-spacing: 1.5px;
-  font-size: 18px;
-  padding: 16.5px 0;
-  border: 1px solid transparent;
-  border-radius: 4px;
-
-  &:hover {
-    background-color: #0483ee;
-  }
 `;
 
 const Description = styled.p`

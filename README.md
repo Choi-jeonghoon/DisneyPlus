@@ -49,7 +49,7 @@
 
 ## 참고
 
-배포된 크롬 시크릿 모드로 오픈 부탁드리겠습니다.
+배포 사이트 입니다
 https://react-disney-clone-df414.firebaseapp.com/
 
 - [Firebase](httpss://firebase.google.com/)

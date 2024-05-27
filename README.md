@@ -22,7 +22,7 @@
 
 ## 사용 기술
 
-- ReactJS (18 버전)
+- ReactJS (18 버전) 빌드 도구: vite
 - Firebase 인증
 - MovieDB API
 - Axios
